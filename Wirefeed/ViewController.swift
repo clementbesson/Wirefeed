@@ -15,15 +15,17 @@ class ViewController: UIViewController, UnsplashDelegate {
     var imageMapping = [UIView: AnyObject]()
     var imageJSON: Dictionary<String, AnyObject> = [:]
     var imageURL = [String]()
-    var width = [Int]()
-    var height = [Int]()
     var testURL = String()
     var yPosition: CGFloat = 0
     var scrollViewContentSize: CGFloat = 0
+    var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
+    var loadingView: UIView = UIView()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
+        showActivityIndicatory(self.view)
+        self.scrollView.frame = view.frame
+        //self.scrollView.frame.height = self.view.frame.size.height
         // MARK: - Unsplash Fetching
         let url = "https://api.unsplash.com/photos/?client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
         let instanceOfSplash = Unsplash(urlString: url)
@@ -34,8 +36,6 @@ class ViewController: UIViewController, UnsplashDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    // esfdc
     
     // MARK: - Unsplash Delegate
     func unsplash(unsplash: Unsplash, didReceivedData data: [AnyObject]){
@@ -53,7 +53,13 @@ class ViewController: UIViewController, UnsplashDelegate {
                             imageView.image = image
                             imageView.contentMode = UIViewContentMode.ScaleAspectFit
                             imageView.frame.size.width = self.view.frame.width
-                            imageView.frame.size.height = 300
+                            if let width = photo["width"] as? Float {
+                                if let height = photo["height"] as? Float  {
+                                    let ratio = height / width
+                                    let imageHeight = self.view.frame.width * CGFloat(ratio)
+                                    imageView.frame.size.height = imageHeight
+                                }
+                            }
                             imageView.center = self.view.center
                             imageView.frame.origin.x = 0
                             imageView.frame.origin.y = self.yPosition
@@ -61,9 +67,11 @@ class ViewController: UIViewController, UnsplashDelegate {
                             imageView.userInteractionEnabled = true
                             imageMapping.updateValue(item, forKey: imageView)
                             self.scrollView.addSubview(imageView)
-                            self.yPosition += imageView.frame.size.height  + 5
-                            self.scrollViewContentSize += imageView.frame.size.height  + 5
+                            self.yPosition += imageView.frame.size.height
+                            self.scrollViewContentSize += imageView.frame.size.height
                             self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollViewContentSize)
+                            actInd.stopAnimating()
+                            loadingView.hidden = true
                         }
                     }
                 }
@@ -90,7 +98,24 @@ class ViewController: UIViewController, UnsplashDelegate {
             detailViewController.json = imageJSON
         }
     }
-
+    
+    // MARK: - UI
+    func showActivityIndicatory(uiView: UIView) {
+        loadingView.frame = CGRectMake(0, 0, 80, 80)
+        loadingView.center = uiView.center
+        loadingView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        actInd.frame = CGRectMake(0.0, 0.0, 40.0, 40.0)
+        actInd.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.WhiteLarge
+        actInd.center = CGPointMake(loadingView.frame.size.width / 2,
+                                    loadingView.frame.size.height / 2);
+        actInd.hidesWhenStopped = true
+        loadingView.addSubview(actInd)
+        uiView.addSubview(loadingView)
+        actInd.startAnimating()
+    }
     
 }
 

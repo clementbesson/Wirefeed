@@ -11,46 +11,42 @@ import UIKit
 class DetailsViewController: UIViewController {   //MARK - Properties
     
     // MARK: - Properties
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorName: UILabel!
     @IBOutlet weak var dateValue: UILabel!
     @IBOutlet weak var authorProfilePicture: UIImageView!
     @IBOutlet weak var likesValue: UILabel!
-    
-    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var dateLogo: UIImageView!
+    @IBOutlet weak var liveLogo: NSLayoutConstraint!
     
     
     var json: Dictionary<String, AnyObject> = [:]
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        //self.view.addGestureRecognizer(swipeBack)
+        
+        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeBack))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
         
         if let photo = json as? [String: AnyObject] {
             if let urls = photo["urls"] {
-                if let url = urls["small"] as? String{
+                if let url = urls["full"] as? String{
                     if let data = NSData(contentsOfURL: NSURL(string: url)!) {
                         let image = UIImage(data: data)
                         imageView.image = image
-                        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                        imageView.frame.size.width = self.view.frame.width
-                        imageView.frame.size.height = 300
-                        imageView.center = self.view.center
-                        imageView.frame.origin.x = 0
-                        imageView.frame.origin.y = 100
-                        imageView.userInteractionEnabled = true
+                        //imageView.contentMode = UIViewContentMode.ScaleAspectFill
                     }
                 }
             }
             
             if let likes = photo["likes"] {
                 likesValue.text = String(likes)
+                likesValue.bringSubviewToFront(self.view)
             }
             
             if let date = photo["created_at"] {
-                dateValue.text = String(date)
+                dateValue.text = String(String(date).characters.prefix(10))
             }
             
             if let author = photo["user"] {
@@ -58,10 +54,12 @@ class DetailsViewController: UIViewController {   //MARK - Properties
                     authorName.text = name
                 }
                 if let profileImage = author["profile_image"]{
-                    if let url = profileImage!["medium"] as? String{
+                    if let url = profileImage!["large"] as? String{
                         if let data = NSData(contentsOfURL: NSURL(string: url)!) {
                             let image = UIImage(data: data)
                             authorProfilePicture.image = image
+                            authorProfilePicture.frame.size.height = (image?.size.height)!
+                            //authorProfilePicture.contentMode = UIViewContentMode.ScaleAspectFit
                         }
                     }
                 }
@@ -76,7 +74,7 @@ class DetailsViewController: UIViewController {   //MARK - Properties
     
     // MARK: - Navigation
     func swipeBack(swipeRecognizer: UISwipeGestureRecognizer) {
-            performSegueWithIdentifier("DetailsToList", sender: self)
+        performSegueWithIdentifier("DetailsToList", sender: self)
     }
     
 }
