@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UnsplashDelegate {
+class ViewController: UIViewController, UnsplashDelegate, UIScrollViewDelegate {
     
     //MARK - Properties
     @IBOutlet weak var scrollView: UIScrollView!
@@ -22,16 +22,20 @@ class ViewController: UIViewController, UnsplashDelegate {
     var loadingView: UIView = UIView()
     @IBOutlet weak var logoView: UIImageView!
     @IBOutlet weak var headerLabel: UILabel!
+    var scrollCount = 1
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         logoView.hidden = true
         headerLabel.hidden = true
         showActivityIndicatory(self.view)
-        self.scrollView.frame = view.frame
-        //self.scrollView.frame.height = self.view.frame.size.height
+        scrollView.frame = view.frame
+        scrollView.delegate = self
+        
         // MARK: - Unsplash Fetching
-        let url = "https://api.unsplash.com/photos/?client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
+        let url_1 = "https://api.unsplash.com/photos?page="
+        let url_2 = "&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
+        let url = url_1 + String(scrollCount) + url_2
         let instanceOfSplash = Unsplash(urlString: url)
         instanceOfSplash.delegate = self
         instanceOfSplash.getimage()
@@ -83,13 +87,12 @@ class ViewController: UIViewController, UnsplashDelegate {
                 }
             }
         }
-        
     }
     
     func unsplash(unsplash: Unsplash, gotError errorCode: Int) {
         print("got error \(errorCode)")
     }
-
+    
     // MARK: - Navigation
     func imageDetail(tapRecognizer: UITapGestureRecognizer) {
         if let selectedJSON = imageMapping[tapRecognizer.view!] as? Dictionary<String, AnyObject> {
@@ -123,5 +126,20 @@ class ViewController: UIViewController, UnsplashDelegate {
         actInd.startAnimating()
     }
     
+    // MARK: - Scroll
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > view.center.y {
+            scrollCount = scrollCount + 1
+            let url_1 = "https://api.unsplash.com/photos?page="
+            let url_2 = "&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
+            let url = url_1 + String(scrollCount) + url_2
+            let instanceOfSplash = Unsplash(urlString: url)
+            instanceOfSplash.delegate = self
+            instanceOfSplash.getimage()
+            actInd.hidden = false
+            loadingView.hidden = false
+            showActivityIndicatory(view)
+        }
+    }
 }
 

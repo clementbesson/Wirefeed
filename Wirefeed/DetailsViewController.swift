@@ -87,6 +87,9 @@ class DetailsViewController: UIViewController {   //MARK - Properties
             dispatch_async(dispatch_get_main_queue()) {
                 // update UI
                 self.imageView.image = self.imageArt
+                self.imageView.frame.size.height = 100
+                self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
+                //self.imageView.contentMode = UIViewContentMode.Sace
                 self.authorProfilePicture.image = self.imageArtist
                 self.likesValue.text = self.likesText
                 self.dateValue.text = self.dateText
