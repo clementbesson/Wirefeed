@@ -15,7 +15,6 @@ protocol UnsplashDelegate: class {
 
 class Unsplash {
     var urlString: String
-    var urlArray: [String] = []
     var jsonImage = [AnyObject]()
     weak var delegate: UnsplashDelegate?
     
@@ -24,7 +23,6 @@ class Unsplash {
     }
     
     func getimage() {
-        var imageURL = [String]()
         let requestURL: NSURL = NSURL(string: urlString)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
         let session = NSURLSession.sharedSession()
@@ -40,31 +38,12 @@ class Unsplash {
                         // Loops trough json object
                         for item in json as! [Dictionary<String, AnyObject>] {
                             self.jsonImage.append(item)
-                            if let photo = item as? [String: AnyObject] {
-                                // gets id of the photo
-                                if let id = photo["id"] as? String{
-                                    
-                                    print("here")
-                                    
-                                    
-                                    
-                                }
-                                // gets small image url
-                                if let urls = photo["urls"] as? [String: AnyObject] {
-                                    if let url = urls["small"] as? String{
-                                        imageURL.append(url)
-                                    }
-                                }
-                            }
-                            //completionHandler("finished", nil)
                         }
                         
                         dispatch_async(dispatch_get_main_queue(), {
-                            self.urlArray = imageURL
                             if let delegate = self.delegate {
                                 delegate.unsplash(self, didReceivedData: self.jsonImage)
                             }
-                            //print("value in class is \(self.urlArray)")
                         })
                     }
                     catch {
