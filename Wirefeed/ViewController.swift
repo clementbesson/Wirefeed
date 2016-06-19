@@ -17,6 +17,7 @@ class ViewController: UIViewController, UnsplashDelegate, UIScrollViewDelegate {
     var imageURL = [String]()
     var testURL = String()
     var yPosition: CGFloat = 0
+    var yPositionMax: CGFloat = 0
     var scrollViewContentSize: CGFloat = 0
     var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
     var loadingView: UIView = UIView()
@@ -128,8 +129,9 @@ class ViewController: UIViewController, UnsplashDelegate, UIScrollViewDelegate {
     
     // MARK: - Scroll
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > view.center.y {
+        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height{
             scrollCount = scrollCount + 1
+            print(scrollCount)
             let url_1 = "https://api.unsplash.com/photos?page="
             let url_2 = "&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
             let url = url_1 + String(scrollCount) + url_2
@@ -142,4 +144,5 @@ class ViewController: UIViewController, UnsplashDelegate, UIScrollViewDelegate {
         }
     }
 }
+
 
