@@ -15,6 +15,8 @@
 		EB7383911D15CF1C00841DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB73838F1D15CF1C00841DA5 /* LaunchScreen.storyboard */; };
 		EB73839C1D15CF1C00841DA5 /* WirefeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73839B1D15CF1C00841DA5 /* WirefeedTests.swift */; };
 		EB7383A71D15CF1C00841DA5 /* WirefeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7383A61D15CF1C00841DA5 /* WirefeedUITests.swift */; };
+		EB7383B51D15FDFC00841DA5 /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7383B41D15FDFC00841DA5 /* Unsplash.swift */; };
+		EB7383B71D160ABD00841DA5 /* UnsplashCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7383B61D160ABD00841DA5 /* UnsplashCallBack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		EB7383A21D15CF1C00841DA5 /* WirefeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WirefeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7383A61D15CF1C00841DA5 /* WirefeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WirefeedUITests.swift; sourceTree = "<group>"; };
 		EB7383A81D15CF1C00841DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB7383B41D15FDFC00841DA5 /* Unsplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
+		EB7383B61D160ABD00841DA5 /* UnsplashCallBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashCallBack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			children = (
 				EB7383831D15CF1C00841DA5 /* AppDelegate.swift */,
 				EB7383851D15CF1C00841DA5 /* ViewController.swift */,
+				EB7383B41D15FDFC00841DA5 /* Unsplash.swift */,
+				EB7383B61D160ABD00841DA5 /* UnsplashCallBack.swift */,
 				EB7383871D15CF1C00841DA5 /* Main.storyboard */,
 				EB73838D1D15CF1C00841DA5 /* Assets.xcassets */,
 				EB73838F1D15CF1C00841DA5 /* LaunchScreen.storyboard */,
@@ -262,6 +268,8 @@
 				EB7383861D15CF1C00841DA5 /* ViewController.swift in Sources */,
 				EB73838C1D15CF1C00841DA5 /* Wirefeed.xcdatamodeld in Sources */,
 				EB7383841D15CF1C00841DA5 /* AppDelegate.swift in Sources */,
+				EB7383B71D160ABD00841DA5 /* UnsplashCallBack.swift in Sources */,
+				EB7383B51D15FDFC00841DA5 /* Unsplash.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
