@@ -22,15 +22,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background-dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="lD1-q1-ylg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWN-rU-Wvc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wirefeed-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="GmX-k6-sKO">
+                                <rect key="frame" x="250" y="11" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GmX-k6-sKO" secondAttribute="height" multiplier="1:1" id="XOP-Yg-ABo"/>
+                                    <constraint firstAttribute="width" constant="40" id="xnm-wK-051"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GWN-rU-Wvc">
+                                <rect key="frame" x="0.0" y="57" width="600" height="624"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GmX-k6-sKO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="25" id="1ZU-ao-bsD"/>
                             <constraint firstItem="GWN-rU-Wvc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5bo-qr-9dD"/>
                             <constraint firstAttribute="bottom" secondItem="GWN-rU-Wvc" secondAttribute="bottom" id="Et3-JK-CNT"/>
                             <constraint firstItem="GWN-rU-Wvc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="J3z-Mn-NJd"/>
+                            <constraint firstItem="GmX-k6-sKO" firstAttribute="centerX" secondItem="GWN-rU-Wvc" secondAttribute="centerX" id="NON-kM-8OW"/>
                             <constraint firstItem="GWN-rU-Wvc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Wms-i8-ZDL"/>
                             <constraint firstItem="GWN-rU-Wvc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="chA-H4-Qbn"/>
                             <constraint firstAttribute="trailing" secondItem="lD1-q1-ylg" secondAttribute="trailing" id="hOk-Rv-IVe"/>
@@ -40,6 +49,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoView" destination="GmX-k6-sKO" id="gBq-Qe-WxM"/>
                         <outlet property="scrollView" destination="GWN-rU-Wvc" id="kBg-db-HY3"/>
                         <segue destination="BpW-FY-LEK" kind="presentation" identifier="ListToDetails" modalTransitionStyle="crossDissolve" id="Yea-0V-gSh"/>
                     </connections>
@@ -132,8 +142,8 @@
                             <constraint firstItem="VPP-09-Lpe" firstAttribute="leading" secondItem="Nbc-ga-ahB" secondAttribute="trailing" constant="5" id="TJH-jp-c31"/>
                             <constraint firstItem="Nbc-ga-ahB" firstAttribute="bottom" secondItem="bim-nI-19A" secondAttribute="bottom" id="UxF-Ej-pCZ"/>
                             <constraint firstAttribute="bottom" secondItem="bim-nI-19A" secondAttribute="bottom" constant="10" id="VDR-0q-gMt"/>
-                            <constraint firstItem="N81-Jb-1Rw" firstAttribute="leading" secondItem="bim-nI-19A" secondAttribute="trailing" constant="5" id="W1n-Wf-kGE"/>
-                            <constraint firstItem="QWg-p2-lff" firstAttribute="leading" secondItem="Clm-Sa-hy8" secondAttribute="trailing" constant="5" id="ZZM-0O-Bal"/>
+                            <constraint firstItem="N81-Jb-1Rw" firstAttribute="leading" secondItem="bim-nI-19A" secondAttribute="trailing" constant="3" id="W1n-Wf-kGE"/>
+                            <constraint firstItem="QWg-p2-lff" firstAttribute="leading" secondItem="Clm-Sa-hy8" secondAttribute="trailing" constant="3" id="ZZM-0O-Bal"/>
                             <constraint firstItem="cER-S0-xJp" firstAttribute="centerY" secondItem="6kg-eG-8Q6" secondAttribute="centerY" id="bsJ-Ja-Eid"/>
                             <constraint firstItem="cER-S0-xJp" firstAttribute="centerX" secondItem="6kg-eG-8Q6" secondAttribute="centerX" id="m7v-qQ-6of"/>
                             <constraint firstAttribute="bottom" secondItem="cER-S0-xJp" secondAttribute="bottom" id="qJ4-W7-617"/>
@@ -162,5 +172,6 @@
         <image name="blur.png" width="678" height="140"/>
         <image name="date-icon.png" width="2133" height="2133"/>
         <image name="likes-icon.png" width="512" height="512"/>
+        <image name="wirefeed-logo.png" width="737" height="737"/>
     </resources>
 </document>

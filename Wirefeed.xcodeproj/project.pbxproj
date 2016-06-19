@@ -23,6 +23,7 @@
 		EB7383C41D16F96F00841DA5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7383C31D16F96F00841DA5 /* background.png */; };
 		EB7383C61D16FABE00841DA5 /* background-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7383C51D16FABE00841DA5 /* background-dark.png */; };
 		EB7383C81D16FCCD00841DA5 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7383C71D16FCCD00841DA5 /* blur.png */; };
+		EB7383CA1D17476C00841DA5 /* wirefeed-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7383C91D17476C00841DA5 /* wirefeed-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EB7383C31D16F96F00841DA5 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		EB7383C51D16FABE00841DA5 /* background-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-dark.png"; sourceTree = "<group>"; };
 		EB7383C71D16FCCD00841DA5 /* blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blur.png; sourceTree = "<group>"; };
+		EB7383C91D17476C00841DA5 /* wirefeed-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wirefeed-logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		EB7383BE1D16781500841DA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EB7383C91D17476C00841DA5 /* wirefeed-logo.png */,
 				EB7383C51D16FABE00841DA5 /* background-dark.png */,
 				EB7383C31D16F96F00841DA5 /* background.png */,
 				EB7383BC1D16780B00841DA5 /* likes-icon.png */,
@@ -270,6 +273,7 @@
 				EB7383C01D16790500841DA5 /* date-icon.png in Resources */,
 				EB73838E1D15CF1C00841DA5 /* Assets.xcassets in Resources */,
 				EB7383C61D16FABE00841DA5 /* background-dark.png in Resources */,
+				EB7383CA1D17476C00841DA5 /* wirefeed-logo.png in Resources */,
 				EB7383891D15CF1C00841DA5 /* Main.storyboard in Resources */,
 				EB7383BD1D16780B00841DA5 /* likes-icon.png in Resources */,
 			);
