@@ -44,6 +44,8 @@ class Unsplash {
                                 // gets id of the photo
                                 if let id = photo["id"] as? String{
                                     
+                                    print("here")
+                                    
                                     
                                     
                                 }
