@@ -61,7 +61,5 @@ class Unsplash {
             }
         }
         task.resume()
-        
-        
     }
 }

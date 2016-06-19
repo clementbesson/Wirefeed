@@ -25,11 +25,74 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="GWN-rU-Wvc" id="kBg-db-HY3"/>
+                        <segue destination="BpW-FY-LEK" kind="presentation" identifier="ListToDetails" modalTransitionStyle="crossDissolve" id="Yea-0V-gSh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="103"/>
+            <point key="canvasLocation" x="-844" y="139"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="LEZ-ms-tIE">
+            <objects>
+                <viewController id="BpW-FY-LEK" customClass="DetailsViewController" customModule="Wirefeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A55-TM-jxd"/>
+                        <viewControllerLayoutGuide type="bottom" id="zZt-hu-Mtx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6kg-eG-8Q6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPP-09-Lpe">
+                                <rect key="frame" x="103" y="99" width="118" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWg-p2-lff">
+                                <rect key="frame" x="79" y="213" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="likes-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bim-nI-19A">
+                                <rect key="frame" x="37" y="242" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="date-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Clm-Sa-hy8">
+                                <rect key="frame" x="40" y="206" width="35" height="35"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N81-Jb-1Rw">
+                                <rect key="frame" x="79" y="251" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nbc-ga-ahB">
+                                <rect key="frame" x="19" y="75" width="76" height="83"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43W-Z0-0g6">
+                                <rect key="frame" x="20" y="306" width="201" height="217"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="authorName" destination="VPP-09-Lpe" id="khF-EZ-jPW"/>
+                        <outlet property="authorProfilePicture" destination="Nbc-ga-ahB" id="hxW-vC-0Za"/>
+                        <outlet property="dateValue" destination="QWg-p2-lff" id="q0m-Pv-gp3"/>
+                        <outlet property="imageView" destination="43W-Z0-0g6" id="Viq-pH-mYd"/>
+                        <outlet property="likesValue" destination="N81-Jb-1Rw" id="RLv-1Z-dPS"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="DetailsToList" modalTransitionStyle="crossDissolve" id="wu8-MG-WrR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvO-Zi-cr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="date-icon.png" width="2133" height="2133"/>
+        <image name="likes-icon.png" width="512" height="512"/>
+    </resources>
 </document>
