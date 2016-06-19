@@ -21,10 +21,12 @@ class ViewController: UIViewController, UnsplashDelegate {
     var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
     var loadingView: UIView = UIView()
     @IBOutlet weak var logoView: UIImageView!
+    @IBOutlet weak var headerLabel: UILabel!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         logoView.hidden = true
+        headerLabel.hidden = true
         showActivityIndicatory(self.view)
         self.scrollView.frame = view.frame
         //self.scrollView.frame.height = self.view.frame.size.height
@@ -75,6 +77,7 @@ class ViewController: UIViewController, UnsplashDelegate {
                             actInd.stopAnimating()
                             loadingView.hidden = true
                             logoView.hidden = false
+                            headerLabel.hidden = false
                         }
                     }
                 }
