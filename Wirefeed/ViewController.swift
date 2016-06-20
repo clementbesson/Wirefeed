@@ -48,10 +48,8 @@ class ViewController: UIViewController, UnsplashDelegate, UIScrollViewDelegate {
     
     // MARK: - Unsplash Delegate
     func unsplash(unsplash: Unsplash, didReceivedData data: [AnyObject]){
-        
-        // TODO: update UI
         for item in data as! [Dictionary<String, AnyObject>] {
-            if let photo = item as? [String: AnyObject] {
+            if let photo: [String: AnyObject] = item {
                 if let urls = photo["urls"] {
                     if let url = urls["small"] as? String{
                         if let data = NSData(contentsOfURL: NSURL(string: url)!) {

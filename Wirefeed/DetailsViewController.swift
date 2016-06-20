@@ -64,7 +64,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             // do some task
-            if let photo = self.json as? [String: AnyObject] {
+            if let photo: [String: AnyObject] = self.json {
                 if let urls = photo["urls"] {
                     if let url = urls["full"] as? String{
                         if let data = NSData(contentsOfURL: NSURL(string: url)!) {
@@ -121,7 +121,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
                 self.authorProfilePicture.image = self.imageArtist
                 self.likesValue.text = self.likesText
                 self.dateValue.text = self.dateText
-                self.authorName.text = self.artistText
+                self.authorName.text = "picture taken by: " + self.artistText
                 
                 if self.portfolioURL != "" {
                     let button = UIButton(frame: self.authorProfilePicture.frame)
@@ -157,7 +157,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
         //print("unsplash fetched: \(data)")
         
         for item in data as! [Dictionary<String, AnyObject>] {
-            if let photo = item as? [String: AnyObject] {
+            if let photo:[String: AnyObject] = item {//as? [String: AnyObject] {
                 if let urls = photo["urls"] {
                     if let url = urls["small"] as? String{
                         if let data = NSData(contentsOfURL: NSURL(string: url)!) {
