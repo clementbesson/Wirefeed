@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {   //MARK - Properties
+class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Properties
     
     // MARK: - Properties
     @IBOutlet weak var authorName: UILabel!
@@ -33,6 +33,10 @@ class DetailsViewController: UIViewController {   //MARK - Properties
     var width = Float()
     var height = Float()
     var json: Dictionary<String, AnyObject> = [:]
+    var xCount: CGFloat = 0
+    var yCount: CGFloat = 0
+    var imageCount: Int = 0
+    let artView: UIImageView = UIImageView()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -53,9 +57,9 @@ class DetailsViewController: UIViewController {   //MARK - Properties
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
         
+        // MARK: - Unsplash Fetching
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             // do some task
             if let photo = self.json as? [String: AnyObject] {
@@ -98,29 +102,25 @@ class DetailsViewController: UIViewController {   //MARK - Properties
             }
             dispatch_async(dispatch_get_main_queue()) {
                 // update UI
-                let artView: UIImageView = UIImageView()
-                artView.contentMode = UIViewContentMode.ScaleAspectFit
+                self.artView.contentMode = UIViewContentMode.ScaleAspectFit
                 let ratio = self.height / self.width
                 let imageHeight = self.view.frame.width * CGFloat(ratio)
-                artView.frame.size.width = self.view.frame.width
-                artView.frame.size.height = imageHeight
-                artView.center = self.view.center
-                artView.frame.origin.y = self.view.frame.size.height - artView.frame.size.height - self.blurImage.frame.size.height
-                artView.image = self.imageArt
-                self.backgroundView.addSubview(artView)
+                self.artView.frame.size.width = self.view.frame.width
+                self.artView.frame.size.height = imageHeight
+                self.artView.center = self.view.center
+                self.artView.frame.origin.y = self.view.frame.size.height - self.artView.frame.size.height - self.blurImage.frame.size.height
+                self.artView.image = self.imageArt
+                self.backgroundView.addSubview(self.artView)
                 self.authorProfilePicture.image = self.imageArtist
                 self.likesValue.text = self.likesText
                 self.dateValue.text = self.dateText
                 self.authorName.text = self.artistText
-                self.authorProfilePicture.hidden = false
-                self.authorName.hidden = false
-                self.likesValue.hidden = false
-                self.likeLogo.hidden = false
-                self.dateLogo.hidden = false
-                self.dateValue.hidden = false
-                self.blurImage.hidden = false
-                self.actInd.stopAnimating()
-                self.loadingView.hidden = true
+                let url_1 = "https://api.unsplash.com/users/"
+                let url_2 = "/photos?per_page=4&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
+                let url = url_1 + self.artistText + url_2
+                let instanceOfSplash = Unsplash(urlString: url)
+                instanceOfSplash.delegate = self
+                instanceOfSplash.getimage()
             }
         }
     }
@@ -128,6 +128,64 @@ class DetailsViewController: UIViewController {   //MARK - Properties
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    // MARK: - Unsplash Delegate
+    func unsplash(unsplash: Unsplash, didReceivedData data: [AnyObject]){
+        //print("unsplash fetched: \(data)")
+        
+        for item in data as! [Dictionary<String, AnyObject>] {
+            if let photo = item as? [String: AnyObject] {
+                if let urls = photo["urls"] {
+                    if let url = urls["small"] as? String{
+                        if let data = NSData(contentsOfURL: NSURL(string: url)!) {
+                            let image = UIImage(data: data)
+                            let imageView: UIImageView = UIImageView()
+                            imageView.image = image
+                            imageView.frame.size.width = self.view.frame.width
+                            let imageWidth = self.view.frame.size.width/2
+                            let imageHeight = (self.view.frame.size.height - self.blurImage.frame.size.height - self.artView.frame.size.height) / 2
+                            
+                            if self.imageCount  == 0 {
+                                xCount = self.view.frame.origin.x
+                                yCount = self.view.frame.origin.y
+                            } else if self.imageCount  == 1  {
+                                xCount = imageWidth
+                                yCount = self.view.frame.origin.y
+ 
+                            } else if self.imageCount  == 2 {
+                                xCount = self.view.frame.origin.x
+                                yCount = imageHeight
+                            } else if self.imageCount  == 3 {
+                                xCount = imageWidth
+                                yCount = imageHeight
+                            }
+                            imageView.frame.origin.x = xCount
+                            imageView.frame.origin.y = yCount
+                            imageView.frame.size.height = imageHeight
+                            imageView.frame.size.width = imageWidth
+                            self.backgroundView.addSubview(imageView)
+                            self.imageCount = self.imageCount + 1
+                        }
+                    }
+                }
+            }
+        }
+        self.authorProfilePicture.hidden = false
+        self.authorName.hidden = false
+        self.likesValue.hidden = false
+        self.likeLogo.hidden = false
+        self.dateLogo.hidden = false
+        self.dateValue.hidden = false
+        self.blurImage.hidden = false
+        self.actInd.stopAnimating()
+        self.loadingView.hidden = true
+    }
+    
+    func unsplash(unsplash: Unsplash, gotError errorCode: Int) {
+        print("got error \(errorCode)")
+        
     }
     
     // MARK: - Navigation
@@ -153,4 +211,7 @@ class DetailsViewController: UIViewController {   //MARK - Properties
         actInd.startAnimating()
     }
     
+    func reloadImage(tapRecognizer: UITapGestureRecognizer) {
+       print("image tapped")
+    }
 }
