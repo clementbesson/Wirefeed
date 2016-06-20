@@ -165,6 +165,9 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
                             imageView.frame.origin.y = yCount
                             imageView.frame.size.height = imageHeight
                             imageView.frame.size.width = imageWidth
+                            imageView.contentMode = UIViewContentMode.ScaleAspectFill
+                            imageView.clipsToBounds = true
+                            
                             self.backgroundView.addSubview(imageView)
                             self.imageCount = self.imageCount + 1
                         }
