@@ -21,6 +21,10 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
     @IBOutlet weak var likeLogo: UIImageView!
     @IBOutlet weak var blurImage: UIImageView!
     @IBOutlet weak var backgroundView: UIImageView!
+    @IBAction func portofolioButton(sender: UIButton) {
+        toPortfolio()
+    }
+    @IBOutlet weak var portfolioButtonView: UIButton!
     
     
     var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -52,6 +56,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
         self.dateValue.hidden = true
         self.blurImage.hidden = true
         self.artView.hidden = true
+        self.portfolioButtonView.hidden = true
     }
     
     override func viewDidLoad() {
@@ -122,19 +127,10 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
                 self.likesValue.text = self.likesText
                 self.dateValue.text = self.dateText
                 self.authorName.text = "picture taken by: " + self.artistText
-                
-                if self.portfolioURL != "" {
-                    let button = UIButton(frame: self.authorProfilePicture.frame)
-                    button.backgroundColor = UIColor.clearColor()
-                    button.addTarget(self, action: #selector(self.toPortfolio), forControlEvents: .TouchUpInside)
-                    self.view.addSubview(button)
-                    self.view.bringSubviewToFront(button)
-                }
-                
                 let testHeight = self.artView.frame.size.height + self.blurImage.frame.size.height
                 if testHeight < 0.75*self.view.frame.size.height{
                     let url_1 = "https://api.unsplash.com/users/"
-                    let url_2 = "/photos?per_page=4&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
+                    let url_2 = "/photos?page=2&per_page=4&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
                     let url = url_1 + self.artistText + url_2
                     let instanceOfSplash = Unsplash(urlString: url)
                     instanceOfSplash.delegate = self
@@ -241,15 +237,18 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
     }
     
     func reveal(){
-        self.authorProfilePicture.hidden = false
-        self.authorName.hidden = false
-        self.likesValue.hidden = false
-        self.likeLogo.hidden = false
-        self.dateLogo.hidden = false
-        self.dateValue.hidden = false
-        self.blurImage.hidden = false
-        self.artView.hidden = false
-        self.actInd.stopAnimating()
-        self.loadingView.hidden = true
+        authorProfilePicture.hidden = false
+        authorName.hidden = false
+        likesValue.hidden = false
+        likeLogo.hidden = false
+        dateLogo.hidden = false
+        dateValue.hidden = false
+        blurImage.hidden = false
+        artView.hidden = false
+        actInd.stopAnimating()
+        loadingView.hidden = true
+        if portfolioURL != "" {
+           portfolioButtonView.hidden = false
+        }
     }
 }

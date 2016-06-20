@@ -24,6 +24,7 @@
 		EB7383C81D16FCCD00841DA5 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7383C71D16FCCD00841DA5 /* blur.png */; };
 		EB7383CA1D17476C00841DA5 /* wirefeed-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7383C91D17476C00841DA5 /* wirefeed-logo.png */; };
 		EB7383CC1D17920F00841DA5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7383CB1D17920F00841DA5 /* WebViewController.swift */; };
+		EB7383CE1D17B26B00841DA5 /* portfolio-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7383CD1D17B26B00841DA5 /* portfolio-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		EB7383C71D16FCCD00841DA5 /* blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blur.png; sourceTree = "<group>"; };
 		EB7383C91D17476C00841DA5 /* wirefeed-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wirefeed-logo.png"; sourceTree = "<group>"; };
 		EB7383CB1D17920F00841DA5 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		EB7383CD1D17B26B00841DA5 /* portfolio-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "portfolio-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		EB7383BE1D16781500841DA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EB7383CD1D17B26B00841DA5 /* portfolio-icon.png */,
 				EB7383C91D17476C00841DA5 /* wirefeed-logo.png */,
 				EB7383C51D16FABE00841DA5 /* background-dark.png */,
 				EB7383C31D16F96F00841DA5 /* background.png */,
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB7383C81D16FCCD00841DA5 /* blur.png in Resources */,
+				EB7383CE1D17B26B00841DA5 /* portfolio-icon.png in Resources */,
 				EB7383911D15CF1C00841DA5 /* LaunchScreen.storyboard in Resources */,
 				EB7383C41D16F96F00841DA5 /* background.png in Resources */,
 				EB7383C01D16790500841DA5 /* date-icon.png in Resources */,
