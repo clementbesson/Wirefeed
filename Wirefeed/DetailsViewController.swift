@@ -27,6 +27,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
     var loadingView: UIView = UIView()
     var imageArt = UIImage()
     var imageArtist = UIImage()
+    var portofolioButton = UIButton()
     var likesText = String()
     var dateText = String()
     var artistText = String()
@@ -92,6 +93,11 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
                     if let name = author["username"] as? String{
                         self.artistText = name
                     }
+                    
+                    if let portfolio = author["portfolio_url"] as? String{
+                        self.portfolioURL = portfolio
+                    }
+                    
                     if let profileImage = author["profile_image"]{
                         if let url = profileImage!["large"] as? String{
                             if let data = NSData(contentsOfURL: NSURL(string: url)!) {
@@ -117,6 +123,15 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
                 self.likesValue.text = self.likesText
                 self.dateValue.text = self.dateText
                 self.authorName.text = self.artistText
+                
+                if self.portfolioURL != "" {
+                    let button = UIButton(frame: self.authorProfilePicture.frame)
+                    button.backgroundColor = UIColor.clearColor()
+                    button.addTarget(self, action: #selector(self.toPortfolio), forControlEvents: .TouchUpInside)
+                    self.view.addSubview(button)
+                    self.view.bringSubviewToFront(button)
+                }
+                
                 let testHeight = self.artView.frame.size.height + self.blurImage.frame.size.height
                 if testHeight < 0.75*self.view.frame.size.height{
                     let url_1 = "https://api.unsplash.com/users/"
@@ -191,8 +206,21 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
     }
     
     // MARK: - Navigation
+    
+    func toPortfolio(){
+        performSegueWithIdentifier("DetailsToPortfolio", sender: self)
+    }
+    
     func swipeBack(swipeRecognizer: UISwipeGestureRecognizer) {
         performSegueWithIdentifier("DetailsToList", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "DetailsToPortfolio") {
+            let webViewController = segue.destinationViewController as! WebViewController
+            webViewController.imageJSON = json
+            webViewController.portfolioURL = portfolioURL
+        }
     }
     
     // MARK: - UI
@@ -211,10 +239,6 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
         loadingView.addSubview(actInd)
         uiView.addSubview(loadingView)
         actInd.startAnimating()
-    }
-    
-    func reloadImage(tapRecognizer: UITapGestureRecognizer) {
-       print("image tapped")
     }
     
     func reveal(){

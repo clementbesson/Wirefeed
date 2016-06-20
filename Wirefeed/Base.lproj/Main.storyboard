@@ -194,11 +194,53 @@
                         <outlet property="likesValue" destination="N81-Jb-1Rw" id="RLv-1Z-dPS"/>
                         <outlet property="liveLogo" destination="xuJ-YO-bFc" id="BQy-pD-9RT"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="DetailsToList" modalTransitionStyle="crossDissolve" id="wu8-MG-WrR"/>
+                        <segue destination="yQm-d1-9KG" kind="presentation" identifier="DetailsToPortfolio" modalTransitionStyle="crossDissolve" id="h9i-6j-H0G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvO-Zi-cr2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-180" y="139"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="FBi-eR-30A">
+            <objects>
+                <viewController id="yQm-d1-9KG" customClass="WebViewController" customModule="Wirefeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SQe-jP-peP"/>
+                        <viewControllerLayoutGuide type="bottom" id="U9J-cT-iOJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SoR-P7-Ggz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="0MU-yp-ZZu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-aG-XI2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="G6n-aG-XI2" secondAttribute="trailing" id="5x5-hz-uJE"/>
+                            <constraint firstItem="0MU-yp-ZZu" firstAttribute="top" secondItem="SoR-P7-Ggz" secondAttribute="top" id="8xm-KU-VGO"/>
+                            <constraint firstItem="G6n-aG-XI2" firstAttribute="top" secondItem="SoR-P7-Ggz" secondAttribute="top" id="BVL-ie-IzC"/>
+                            <constraint firstAttribute="trailing" secondItem="0MU-yp-ZZu" secondAttribute="trailing" id="GT9-t5-B8O"/>
+                            <constraint firstAttribute="bottom" secondItem="G6n-aG-XI2" secondAttribute="bottom" id="Iiu-WW-llL"/>
+                            <constraint firstAttribute="bottom" secondItem="0MU-yp-ZZu" secondAttribute="bottom" id="RAr-dk-D03"/>
+                            <constraint firstItem="G6n-aG-XI2" firstAttribute="leading" secondItem="SoR-P7-Ggz" secondAttribute="leading" id="XRn-ix-AgF"/>
+                            <constraint firstItem="0MU-yp-ZZu" firstAttribute="leading" secondItem="SoR-P7-Ggz" secondAttribute="leading" id="iuL-fw-afr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="G6n-aG-XI2" id="xZM-eZ-Pw4"/>
+                        <segue destination="BpW-FY-LEK" kind="presentation" identifier="PortofolioToDetails" modalTransitionStyle="crossDissolve" id="4VE-DN-v7S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHd-pO-Tkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="509" y="139"/>
         </scene>
     </scenes>
     <resources>
@@ -208,4 +250,7 @@
         <image name="likes-icon.png" width="512" height="512"/>
         <image name="wirefeed-logo.png" width="737" height="737"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4VE-DN-v7S"/>
+    </inferredMetricsTieBreakers>
 </document>
