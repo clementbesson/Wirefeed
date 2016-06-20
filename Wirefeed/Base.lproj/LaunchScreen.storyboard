@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="3i2-aD-KWr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="3i2-aD-KWr">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="wirefeed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-gJ-F8Q">
-                                <rect key="frame" x="0.0" y="289" width="600" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wirefeed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-gJ-F8Q">
+                                <rect key="frame" x="0.0" y="287" width="600" height="25"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -29,10 +29,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3i2-aD-KWr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BCW-j0-fFc"/>
-                            <constraint firstItem="GXt-gJ-F8Q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="edf-WG-0Tp"/>
-                            <constraint firstItem="GXt-gJ-F8Q" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jo1-sh-8qp"/>
-                            <constraint firstItem="3i2-aD-KWr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ozb-Zo-wRf"/>
+                            <constraint firstItem="GXt-gJ-F8Q" firstAttribute="centerY" secondItem="3i2-aD-KWr" secondAttribute="centerY" id="0YD-DI-pou"/>
+                            <constraint firstItem="GXt-gJ-F8Q" firstAttribute="centerX" secondItem="3i2-aD-KWr" secondAttribute="centerX" id="Ckc-TA-ebv"/>
+                            <constraint firstAttribute="trailing" secondItem="3i2-aD-KWr" secondAttribute="trailing" id="LCm-tI-ri9"/>
+                            <constraint firstItem="3i2-aD-KWr" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="RLv-xm-ZXH"/>
+                            <constraint firstAttribute="trailing" secondItem="GXt-gJ-F8Q" secondAttribute="trailing" id="SSA-Kv-PFf"/>
+                            <constraint firstItem="3i2-aD-KWr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="UUb-TW-fyJ"/>
+                            <constraint firstItem="GXt-gJ-F8Q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ma7-iB-9UL"/>
+                            <constraint firstAttribute="bottom" secondItem="3i2-aD-KWr" secondAttribute="bottom" id="tJf-Cu-hqS"/>
                         </constraints>
                     </view>
                 </viewController>
