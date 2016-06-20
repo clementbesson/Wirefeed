@@ -20,6 +20,9 @@ class DetailsViewController: UIViewController {   //MARK - Properties
     @IBOutlet weak var liveLogo: NSLayoutConstraint!
     @IBOutlet weak var likeLogo: UIImageView!
     @IBOutlet weak var blurImage: UIImageView!
+    @IBOutlet weak var backgroundView: UIImageView!
+    
+    
     var actInd: UIActivityIndicatorView = UIActivityIndicatorView()
     var loadingView: UIView = UIView()
     var imageArt = UIImage()
@@ -27,6 +30,8 @@ class DetailsViewController: UIViewController {   //MARK - Properties
     var likesText = String()
     var dateText = String()
     var artistText = String()
+    var width = Float()
+    var height = Float()
     var json: Dictionary<String, AnyObject> = [:]
     
     override func viewWillAppear(animated: Bool) {
@@ -47,7 +52,7 @@ class DetailsViewController: UIViewController {   //MARK - Properties
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeBack))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
-
+        
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
@@ -59,6 +64,13 @@ class DetailsViewController: UIViewController {   //MARK - Properties
                         if let data = NSData(contentsOfURL: NSURL(string: url)!) {
                             self.imageArt = UIImage(data: data)!
                         }
+                        if let widthPhoto = photo["width"] as? Float {
+                            if let heightPhoto = photo["height"] as? Float  {
+                                self.width = widthPhoto
+                                self.height = heightPhoto
+                            }
+                        }
+                        
                     }
                 }
                 
@@ -86,17 +98,22 @@ class DetailsViewController: UIViewController {   //MARK - Properties
             }
             dispatch_async(dispatch_get_main_queue()) {
                 // update UI
-                self.imageView.image = self.imageArt
-                self.imageView.frame.size.height = 100
-                self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
-                //self.imageView.contentMode = UIViewContentMode.Sace
+                let artView: UIImageView = UIImageView()
+                artView.contentMode = UIViewContentMode.ScaleAspectFit
+                let ratio = self.height / self.width
+                let imageHeight = self.view.frame.width * CGFloat(ratio)
+                artView.frame.size.width = self.view.frame.width
+                artView.frame.size.height = imageHeight
+                artView.center = self.view.center
+                artView.frame.origin.y = self.view.frame.size.height - artView.frame.size.height - self.blurImage.frame.size.height
+                artView.image = self.imageArt
+                self.backgroundView.addSubview(artView)
                 self.authorProfilePicture.image = self.imageArtist
                 self.likesValue.text = self.likesText
                 self.dateValue.text = self.dateText
                 self.authorName.text = self.artistText
                 self.authorProfilePicture.hidden = false
                 self.authorName.hidden = false
-                self.imageView.hidden = false
                 self.likesValue.hidden = false
                 self.likeLogo.hidden = false
                 self.dateLogo.hidden = false

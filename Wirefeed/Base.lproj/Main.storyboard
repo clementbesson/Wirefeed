@@ -185,6 +185,7 @@
                     <connections>
                         <outlet property="authorName" destination="VPP-09-Lpe" id="khF-EZ-jPW"/>
                         <outlet property="authorProfilePicture" destination="Nbc-ga-ahB" id="hxW-vC-0Za"/>
+                        <outlet property="backgroundView" destination="lJq-3k-ntw" id="uez-4w-228"/>
                         <outlet property="blurImage" destination="c8J-iF-xO7" id="qTD-Ee-vDX"/>
                         <outlet property="dateLogo" destination="Clm-Sa-hy8" id="T6l-D6-sUi"/>
                         <outlet property="dateValue" destination="QWg-p2-lff" id="q0m-Pv-gp3"/>
