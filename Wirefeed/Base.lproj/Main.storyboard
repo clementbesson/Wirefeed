@@ -82,14 +82,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="lJq-3k-ntw">
                                 <rect key="frame" x="0.0" y="0.0" width="1500" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cER-S0-xJp">
-                                <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="blur.png" translatesAutoresizingMaskIntoConstraints="NO" id="c8J-iF-xO7">
-                                <rect key="frame" x="0.0" y="540" width="678" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blur.png" translatesAutoresizingMaskIntoConstraints="NO" id="c8J-iF-xO7">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="lgf-by-gXy"/>
                                 </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cER-S0-xJp">
+                                <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPP-09-Lpe">
                                 <rect key="frame" x="83" y="540" width="32" height="18"/>
@@ -100,6 +100,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Clm-Sa-hy8">
+                                <rect key="frame" x="510" y="560" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Uca-yd-TZg"/>
+                                    <constraint firstAttribute="width" constant="35" id="ZLo-46-MtL"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N81-Jb-1Rw">
                                 <rect key="frame" x="323" y="568" width="32" height="18"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -132,17 +139,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Clm-Sa-hy8">
-                                <rect key="frame" x="510" y="560" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Uca-yd-TZg"/>
-                                    <constraint firstAttribute="width" constant="35" id="ZLo-46-MtL"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bim-nI-19A" firstAttribute="centerX" secondItem="6kg-eG-8Q6" secondAttribute="centerX" id="7Ht-kX-Dpt"/>
+                            <constraint firstItem="c8J-iF-xO7" firstAttribute="leading" secondItem="6kg-eG-8Q6" secondAttribute="leading" id="A2s-hq-dDv"/>
                             <constraint firstAttribute="bottom" secondItem="c8J-iF-xO7" secondAttribute="bottom" id="B6V-eu-9n7"/>
                             <constraint firstItem="Nbc-ga-ahB" firstAttribute="leading" secondItem="6kg-eG-8Q6" secondAttribute="leading" constant="10" id="GFp-qY-p2N"/>
                             <constraint firstAttribute="bottom" secondItem="lJq-3k-ntw" secondAttribute="bottom" id="HYB-7U-xQv"/>
@@ -160,6 +161,7 @@
                             <constraint firstAttribute="bottom" secondItem="Nbc-ga-ahB" secondAttribute="bottom" constant="5" id="cOF-O6-lI1"/>
                             <constraint firstItem="Clm-Sa-hy8" firstAttribute="centerY" secondItem="bim-nI-19A" secondAttribute="centerY" id="tcI-Fq-T6f"/>
                             <constraint firstItem="N81-Jb-1Rw" firstAttribute="centerY" secondItem="bim-nI-19A" secondAttribute="centerY" id="xuJ-YO-bFc"/>
+                            <constraint firstAttribute="trailing" secondItem="c8J-iF-xO7" secondAttribute="trailing" id="yyj-tA-pOp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
