@@ -131,6 +131,7 @@ class ViewController: UIViewController, UnsplashDelegate, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height{
             scrollCount = scrollCount + 1
+
             let url_1 = "https://api.unsplash.com/photos?page="
             let url_2 = "&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
             let url = url_1 + String(scrollCount) + url_2

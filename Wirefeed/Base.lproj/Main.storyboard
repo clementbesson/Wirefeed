@@ -85,8 +85,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cER-S0-xJp">
                                 <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="blur.png" translatesAutoresizingMaskIntoConstraints="NO" id="c8J-iF-xO7">
+                                <rect key="frame" x="0.0" y="540" width="678" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="lgf-by-gXy"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPP-09-Lpe">
-                                <rect key="frame" x="83" y="560" width="32" height="19"/>
+                                <rect key="frame" x="83" y="540" width="32" height="18"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -94,15 +100,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Clm-Sa-hy8">
-                                <rect key="frame" x="510" y="553" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Uca-yd-TZg"/>
-                                    <constraint firstAttribute="width" constant="35" id="ZLo-46-MtL"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N81-Jb-1Rw">
-                                <rect key="frame" x="323" y="561" width="32" height="18"/>
+                                <rect key="frame" x="323" y="568" width="32" height="18"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -111,21 +110,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nbc-ga-ahB">
-                                <rect key="frame" x="10" y="522" width="68" height="68"/>
+                                <rect key="frame" x="10" y="527" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="lOt-wb-ChS"/>
                                     <constraint firstAttribute="width" secondItem="Nbc-ga-ahB" secondAttribute="height" multiplier="1:1" id="uzO-jU-pRn"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likes-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bim-nI-19A">
-                                <rect key="frame" x="280" y="550" width="40" height="40"/>
+                                <rect key="frame" x="280" y="557" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="228-l9-UQh"/>
                                     <constraint firstAttribute="width" constant="40" id="59e-4w-Gqp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWg-p2-lff">
-                                <rect key="frame" x="548" y="562" width="32" height="18"/>
+                                <rect key="frame" x="548" y="569" width="32" height="18"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -133,10 +132,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="blur.png" translatesAutoresizingMaskIntoConstraints="NO" id="c8J-iF-xO7">
-                                <rect key="frame" x="0.0" y="540" width="678" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Clm-Sa-hy8">
+                                <rect key="frame" x="510" y="560" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="lgf-by-gXy"/>
+                                    <constraint firstAttribute="height" constant="35" id="Uca-yd-TZg"/>
+                                    <constraint firstAttribute="width" constant="35" id="ZLo-46-MtL"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -148,18 +148,25 @@
                             <constraint firstAttribute="bottom" secondItem="lJq-3k-ntw" secondAttribute="bottom" id="HYB-7U-xQv"/>
                             <constraint firstItem="QWg-p2-lff" firstAttribute="centerY" secondItem="Clm-Sa-hy8" secondAttribute="centerY" id="Hcu-14-Cyn"/>
                             <constraint firstItem="VPP-09-Lpe" firstAttribute="bottom" secondItem="N81-Jb-1Rw" secondAttribute="bottom" id="N4B-wr-frI"/>
-                            <constraint firstItem="VPP-09-Lpe" firstAttribute="top" secondItem="c8J-iF-xO7" secondAttribute="top" constant="20" id="RnF-i6-XAp"/>
+                            <constraint firstItem="VPP-09-Lpe" firstAttribute="top" secondItem="c8J-iF-xO7" secondAttribute="top" id="RnF-i6-XAp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QWg-p2-lff" secondAttribute="trailing" id="T4Q-im-4aF"/>
                             <constraint firstItem="VPP-09-Lpe" firstAttribute="leading" secondItem="Nbc-ga-ahB" secondAttribute="trailing" constant="5" id="TJH-jp-c31"/>
                             <constraint firstItem="Nbc-ga-ahB" firstAttribute="bottom" secondItem="bim-nI-19A" secondAttribute="bottom" id="UxF-Ej-pCZ"/>
-                            <constraint firstAttribute="bottom" secondItem="bim-nI-19A" secondAttribute="bottom" constant="10" id="VDR-0q-gMt"/>
+                            <constraint firstAttribute="bottom" secondItem="bim-nI-19A" secondAttribute="bottom" constant="3" id="VDR-0q-gMt"/>
                             <constraint firstItem="N81-Jb-1Rw" firstAttribute="leading" secondItem="bim-nI-19A" secondAttribute="trailing" constant="3" id="W1n-Wf-kGE"/>
                             <constraint firstItem="QWg-p2-lff" firstAttribute="leading" secondItem="Clm-Sa-hy8" secondAttribute="trailing" constant="3" id="ZZM-0O-Bal"/>
                             <constraint firstItem="lJq-3k-ntw" firstAttribute="leading" secondItem="6kg-eG-8Q6" secondAttribute="leading" id="a6K-rL-zVP"/>
                             <constraint firstItem="lJq-3k-ntw" firstAttribute="top" secondItem="6kg-eG-8Q6" secondAttribute="top" id="bLT-s7-52Y"/>
+                            <constraint firstAttribute="bottom" secondItem="Nbc-ga-ahB" secondAttribute="bottom" constant="5" id="cOF-O6-lI1"/>
                             <constraint firstItem="Clm-Sa-hy8" firstAttribute="centerY" secondItem="bim-nI-19A" secondAttribute="centerY" id="tcI-Fq-T6f"/>
                             <constraint firstItem="N81-Jb-1Rw" firstAttribute="centerY" secondItem="bim-nI-19A" secondAttribute="centerY" id="xuJ-YO-bFc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UxF-Ej-pCZ"/>
+                                <exclude reference="N4B-wr-frI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="authorName" destination="VPP-09-Lpe" id="khF-EZ-jPW"/>
