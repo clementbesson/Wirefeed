@@ -79,8 +79,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="background-dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="lJq-3k-ntw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="lJq-3k-ntw">
                                 <rect key="frame" x="0.0" y="0.0" width="1500" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cER-S0-xJp">
+                                <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="blur.png" translatesAutoresizingMaskIntoConstraints="NO" id="c8J-iF-xO7">
                                 <rect key="frame" x="0.0" y="540" width="678" height="60"/>
@@ -136,9 +139,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cER-S0-xJp">
-                                <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -158,6 +158,7 @@
                             <constraint firstAttribute="bottom" secondItem="bim-nI-19A" secondAttribute="bottom" constant="10" id="VDR-0q-gMt"/>
                             <constraint firstItem="N81-Jb-1Rw" firstAttribute="leading" secondItem="bim-nI-19A" secondAttribute="trailing" constant="3" id="W1n-Wf-kGE"/>
                             <constraint firstItem="QWg-p2-lff" firstAttribute="leading" secondItem="Clm-Sa-hy8" secondAttribute="trailing" constant="3" id="ZZM-0O-Bal"/>
+                            <constraint firstItem="lJq-3k-ntw" firstAttribute="leading" secondItem="6kg-eG-8Q6" secondAttribute="leading" id="a6K-rL-zVP"/>
                             <constraint firstItem="lJq-3k-ntw" firstAttribute="top" secondItem="6kg-eG-8Q6" secondAttribute="top" id="bLT-s7-52Y"/>
                             <constraint firstItem="cER-S0-xJp" firstAttribute="centerX" secondItem="6kg-eG-8Q6" secondAttribute="centerX" id="m7v-qQ-6of"/>
                             <constraint firstItem="Clm-Sa-hy8" firstAttribute="centerY" secondItem="bim-nI-19A" secondAttribute="centerY" id="tcI-Fq-T6f"/>
@@ -233,6 +234,6 @@
         <image name="wirefeed-logo.png" width="737" height="737"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yea-0V-gSh"/>
+        <segue reference="4VE-DN-v7S"/>
     </inferredMetricsTieBreakers>
 </document>
