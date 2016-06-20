@@ -37,6 +37,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
     var yCount: CGFloat = 0
     var imageCount: Int = 0
     let artView: UIImageView = UIImageView()
+    var portfolioURL = String()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -49,6 +50,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
         self.dateLogo.hidden = true
         self.dateValue.hidden = true
         self.blurImage.hidden = true
+        self.artView.hidden = true
     }
     
     override func viewDidLoad() {
@@ -115,12 +117,17 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
                 self.likesValue.text = self.likesText
                 self.dateValue.text = self.dateText
                 self.authorName.text = self.artistText
-                let url_1 = "https://api.unsplash.com/users/"
-                let url_2 = "/photos?per_page=4&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
-                let url = url_1 + self.artistText + url_2
-                let instanceOfSplash = Unsplash(urlString: url)
-                instanceOfSplash.delegate = self
-                instanceOfSplash.getimage()
+                let testHeight = self.artView.frame.size.height + self.blurImage.frame.size.height
+                if testHeight < 0.75*self.view.frame.size.height{
+                    let url_1 = "https://api.unsplash.com/users/"
+                    let url_2 = "/photos?per_page=4&client_id=82ffabe0aba9f4e30e7a1f97899b809b829bf69313787a6fcd93c10d871056ee"
+                    let url = url_1 + self.artistText + url_2
+                    let instanceOfSplash = Unsplash(urlString: url)
+                    instanceOfSplash.delegate = self
+                    instanceOfSplash.getimage()
+                } else {
+                    self.reveal()
+                }
             }
         }
     }
@@ -175,15 +182,7 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
                 }
             }
         }
-        self.authorProfilePicture.hidden = false
-        self.authorName.hidden = false
-        self.likesValue.hidden = false
-        self.likeLogo.hidden = false
-        self.dateLogo.hidden = false
-        self.dateValue.hidden = false
-        self.blurImage.hidden = false
-        self.actInd.stopAnimating()
-        self.loadingView.hidden = true
+        reveal()
     }
     
     func unsplash(unsplash: Unsplash, gotError errorCode: Int) {
@@ -216,5 +215,18 @@ class DetailsViewController: UIViewController, UnsplashDelegate {   //MARK - Pro
     
     func reloadImage(tapRecognizer: UITapGestureRecognizer) {
        print("image tapped")
+    }
+    
+    func reveal(){
+        self.authorProfilePicture.hidden = false
+        self.authorName.hidden = false
+        self.likesValue.hidden = false
+        self.likeLogo.hidden = false
+        self.dateLogo.hidden = false
+        self.dateValue.hidden = false
+        self.blurImage.hidden = false
+        self.artView.hidden = false
+        self.actInd.stopAnimating()
+        self.loadingView.hidden = true
     }
 }
